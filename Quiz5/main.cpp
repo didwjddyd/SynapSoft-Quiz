@@ -1,5 +1,5 @@
 /*
-* Quiz 5: ¼ıÀÚ ¸ñ·ÏÀ» ÀÌ¿ëÇØ ¸¸µç µÎ ÀÚ¿¬¼ö ÇÕÀÇ ÃÖ¼Ú°ª
+* Quiz 5: ìˆ«ì ëª©ë¡ì„ ì´ìš©í•´ ë§Œë“  ë‘ ìì—°ìˆ˜ í•©ì˜ ìµœì†Ÿê°’
 */
 
 #include <iostream>
@@ -11,13 +11,13 @@
 using namespace std;
 
 /*
-* ¼ıÀÚ ¸ñ·Ï º¤ÅÍ¸¦ ±ÔÄ¢¿¡ µû¶ó º¤ÅÍ 3°³·Î ³ª´®
+* ìˆ«ì ëª©ë¡ ë²¡í„°ë¥¼ ê·œì¹™ì— ë”°ë¼ ë²¡í„° 3ê°œë¡œ ë‚˜ëˆ”
 * 
-* ³ª´©´Â ±ÔÄ¢
-* 1. 0Àº zeros º¤ÅÍ·Î ÀÌµ¿
-* 2. 0ÀÌ ¾Æ´Ñ °æ¿ì
-*	2-1. a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ ´Ù¸¥ °æ¿ì: µÑ Áß ¿ø¼Ò °¹¼ö°¡ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
-*	2-2. a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ °°Àº °æ¿ì: µÑ Áß ¿ø¼Ò ÃÑÇÕÀÌ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
+* ë‚˜ëˆ„ëŠ” ê·œì¹™
+* 1. 0ì€ zeros ë²¡í„°ë¡œ ì´ë™
+* 2. 0ì´ ì•„ë‹Œ ê²½ìš°
+*	2-1. aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ë‹¤ë¥¸ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ê°¯ìˆ˜ê°€ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
+*	2-2. aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ê°™ì€ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ì´í•©ì´ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
 */
 void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b, vector<int>& zeros)
 {
@@ -25,10 +25,10 @@ void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b, v
 
 	for (vector<int>::const_iterator iter = original.begin(); iter != original.end(); ++iter)
 	{
-		if (*iter == 0) zeros.push_back(*iter); // 0Àº zeros º¤ÅÍ·Î ÀÌµ¿
+		if (*iter == 0) zeros.push_back(*iter); // 0ì€ zeros ë²¡í„°ë¡œ ì´ë™
 		else
 		{
-			// a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ °°Àº °æ¿ì: µÑ Áß ¿ø¼Ò ÃÑÇÕÀÌ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
+			// aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ê°™ì€ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ì´í•©ì´ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
 			if (a.size() == b.size())
 			{
 				if (sum_a <= sum_b)
@@ -42,7 +42,7 @@ void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b, v
 					sum_b += *iter;
 				}
 			}
-			else // a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ ´Ù¸¥ °æ¿ì: µÑ Áß ¿ø¼Ò °¹¼ö°¡ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
+			else // aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ë‹¤ë¥¸ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ê°¯ìˆ˜ê°€ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
 			{
 				if (a.size() <= b.size())
 				{
@@ -61,13 +61,11 @@ void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b, v
 
 
 /*
-* ÇÑ º¤ÅÍ¸¦ ±ÔÄ¢¿¡ µû¶ó º¤ÅÍ 2°³·Î ³ª´®
+* í•œ ë²¡í„°ë¥¼ ê·œì¹™ì— ë”°ë¼ ë²¡í„° 2ê°œë¡œ ë‚˜ëˆ”
 * 
-* original º¤ÅÍ´Â 0À» ¿ø¼Ò·Î °¡ÁöÁö ¾ÊÀ½
-* 
-* ³ª´©´Â ±ÔÄ¢
-* 1. a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ ´Ù¸¥ °æ¿ì: µÑ Áß ¿ø¼Ò °¹¼ö°¡ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
-* 2. a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ °°Àº °æ¿ì: µÑ Áß ¿ø¼Ò ÃÑÇÕÀÌ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
+* ë‚˜ëˆ„ëŠ” ê·œì¹™
+* 1. aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ë‹¤ë¥¸ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ê°¯ìˆ˜ê°€ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
+* 2. aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ê°™ì€ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ì´í•©ì´ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
 */
 void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b)
 {
@@ -75,7 +73,7 @@ void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b)
 
 	for (vector<int>::const_iterator iter = original.begin(); iter != original.end(); ++iter)
 	{
-		// a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ °°Àº °æ¿ì: µÑ Áß ¿ø¼Ò ÃÑÇÕÀÌ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
+		// aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ê°™ì€ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ì´í•©ì´ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
 		if (a.size() == b.size())
 		{
 			if (sum_a <= sum_b)
@@ -89,7 +87,7 @@ void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b)
 				sum_b += *iter;
 			}
 		}
-		else // a¿Í bÀÇ ¿ø¼Ò °¹¼ö°¡ ´Ù¸¥ °æ¿ì: µÑ Áß ¿ø¼Ò °¹¼ö°¡ ÀÛÀº º¤ÅÍ·Î ÀÌµ¿
+		else // aì™€ bì˜ ì›ì†Œ ê°¯ìˆ˜ê°€ ë‹¤ë¥¸ ê²½ìš°: ë‘˜ ì¤‘ ì›ì†Œ ê°¯ìˆ˜ê°€ ì‘ì€ ë²¡í„°ë¡œ ì´ë™
 		{
 			if (a.size() <= b.size())
 			{
@@ -105,13 +103,13 @@ void DivideVector(const vector<int>& original, vector<int>& a, vector<int>& b)
 	}
 }
 
-// º¤ÅÍÀÇ ¿ø¼Ò ¼ø¼­¸¦ À¯ÁöÇÏ¸ç Á¤¼ö·Î º¯È¯
+// ë²¡í„°ì˜ ì›ì†Œ ìˆœì„œë¥¼ ìœ ì§€í•˜ë©° ì •ìˆ˜ë¡œ ë³€í™˜
 int GetNumber(const vector<int>& numbers)
 {
 	int result = 0;
 	int count = 1;
 
-	// º¤ÅÍ¸¦ ¿ª¼øÀ¸·Î Å½»öÇÏ¿© °¢ ÀÚ¸®¿¡ ÇØ´çÇÏ´Â 10ÀÇ °ÅµìÁ¦°öÀ» °öÇÏ°í ´õÇØ Á¤¼ö·Î º¯È¯
+	// ë²¡í„°ë¥¼ ì—­ìˆœìœ¼ë¡œ íƒìƒ‰í•˜ì—¬ ê° ìë¦¬ì— í•´ë‹¹í•˜ëŠ” 10ì˜ ê±°ë“­ì œê³±ì„ ê³±í•˜ê³  ë”í•´ ì •ìˆ˜ë¡œ ë³€í™˜
 	for (vector<int>::const_reverse_iterator iter = numbers.rbegin(); iter != numbers.rend(); ++iter)
 	{
 		result += *iter * count;
@@ -122,7 +120,7 @@ int GetNumber(const vector<int>& numbers)
 }
 
 
-// º¤ÅÍÀÇ Ã¹¹øÂ° ¿ø¼Ò°¡ 0ÀÎ °æ¿ì Á¦ÀÏ ¾Õ¿¡ ÀÖ´Â 0ÀÌ ¾Æ´Ñ ¿ø¼Ò¿Í swap
+// ë²¡í„°ì˜ ì²«ë²ˆì§¸ ì›ì†Œê°€ 0ì¸ ê²½ìš° ì œì¼ ì•ì— ìˆëŠ” 0ì´ ì•„ë‹Œ ì›ì†Œì™€ swap
 void MoveZero(vector<int>& numbers)
 {
 	vector<int>::iterator iter1 = numbers.begin();
@@ -131,7 +129,7 @@ void MoveZero(vector<int>& numbers)
 	{
 		vector<int>::iterator iter2 = iter1;
 
-		// 0ÀÌ ¾Æ´Ñ ºÎºĞ±îÁö ¹İº¹ÀÚ ÀÌµ¿
+		// 0ì´ ì•„ë‹Œ ë¶€ë¶„ê¹Œì§€ ë°˜ë³µì ì´ë™
 		while (iter2 != numbers.end() - 1 && *iter2 == 0)
 		{
 			iter2++;
@@ -167,22 +165,22 @@ int main()
 
 		sort(numbers.begin(), numbers.end());
 
-		DivideVector(numbers, a, b, zeros); // ¼ıÀÚ ¸ñ·Ï º¤ÅÍ¸¦ ±ÔÄ¢¿¡ µû¶ó º¤ÅÍ 3°³·Î ³ª´®
-		DivideVector(zeros, a, b); // ¼ıÀÚ ¸ñ·Ï º¤ÅÍ¸¦ ±ÔÄ¢¿¡ µû¶ó º¤ÅÍ 2°³·Î ³ª´®
+		DivideVector(numbers, a, b, zeros); // ìˆ«ì ëª©ë¡ ë²¡í„°ë¥¼ ê·œì¹™ì— ë”°ë¼ ë²¡í„° 3ê°œë¡œ ë‚˜ëˆ”
+		DivideVector(zeros, a, b); // ìˆ«ì ëª©ë¡ ë²¡í„°ë¥¼ ê·œì¹™ì— ë”°ë¼ ë²¡í„° 2ê°œë¡œ ë‚˜ëˆ”
 
-		// º¤ÅÍ Á¤·Ä
+		// ë²¡í„° ì •ë ¬
 		sort(a.begin(), a.end());
 		sort(b.begin(), b.end());
 
-		// º¤ÅÍÀÇ Ã¹¹øÂ° ¿ø¼Ò°¡ 0ÀÎ °æ¿ì Á¦ÀÏ ¾Õ¿¡ ÀÖ´Â 0ÀÌ ¾Æ´Ñ ¿ø¼Ò¿Í swap
+		// ë²¡í„°ì˜ ì²«ë²ˆì§¸ ì›ì†Œê°€ 0ì¸ ê²½ìš° ì œì¼ ì•ì— ìˆëŠ” 0ì´ ì•„ë‹Œ ì›ì†Œì™€ swap
 		MoveZero(a);
 		MoveZero(b);
 
 
-		// º¤ÅÍÀÇ ¿ø¼Ò ¼ø¼­¸¦ À¯ÁöÇÏ¸ç Á¤¼ö·Î º¯È¯
+		// ë²¡í„°ì˜ ì›ì†Œ ìˆœì„œë¥¼ ìœ ì§€í•˜ë©° ì •ìˆ˜ë¡œ ë³€í™˜
 		if (GetNumber(a) == 0 || GetNumber(b) == 0)
 		{
-			// º¤ÅÍÀÇ ¿ø¼Ò°¡ 0»ÓÀÌ¶ó ÀÚ¿¬¼ö·Î ³ªÅ¸³¾ ¼ö ¾ø´Â °æ¿ì -1 Ãâ·Â
+			// ë²¡í„°ì˜ ì›ì†Œê°€ 0ë¿ì´ë¼ ìì—°ìˆ˜ë¡œ ë‚˜íƒ€ë‚¼ ìˆ˜ ì—†ëŠ” ê²½ìš° -1 ì¶œë ¥
 			cout << -1 << endl;
 		}
 		else
